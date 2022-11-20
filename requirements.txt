@@ -1,0 +1,8 @@
+Flask==2.2.2
+Werkzeug
+itsdangerous
+pytz
+requests
+setproctitle
+cadquery==2.2.0b0
+opencv-python-headless==4.6.0.66 

@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  server:
+    env_file:
+      - .env
+    image: python:3.9
+    platform: linux/amd64
+    working_dir: /mnt
+    volumes:
+      - .:/mnt
+    ports:
+      - 3000:3000
+    command: python src/server.py
+
+  testserver:
+    env_file: .env
+    image: python:3.9
+    platform: linux/amd64
+    working_dir: /mnt
+    volumes:
+      - .:/mnt
+    ports:
+      - 5053:5053
+    environment:
+      APPLICATION_PORT: 5053
+    command: python -m pytest test/

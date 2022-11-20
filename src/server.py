@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask.blueprints import Blueprint
 
 import config
@@ -11,6 +12,7 @@ import routes
 #   returns a boolean to filter in only desired views
 
 server = Flask(__name__)
+CORS(server)
 
 server.debug = config.DEBUG
 

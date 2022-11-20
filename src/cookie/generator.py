@@ -8,8 +8,8 @@ def create_mask(image_file):
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-    lower = np.array([60, 0, 0])
-    upper = np.array([175, 255, 255])
+    lower = np.array([55, 60, 20])
+    upper = np.array([175, 230, 230])
     img_range = cv2.inRange(image_hsv, lower, upper)
 
     #kernels for morphology operations
@@ -51,10 +51,11 @@ def generate_stl(points, filepath):
     cq.exporters.export(results, filepath)
 
 def preprocess_line(points, width=70):
-    line = geometry.LinearRing(points).normalize()
+    line = geometry.LineString(points).normalize()
     (minx, miny, maxx, maxy) = line.bounds
 
-    line = ops.clip_by_rect(line, minx, miny, maxx, maxy).normalize()
+    line = ops.clip_by_rect(line, minx+2, miny+2, maxx-2, maxy-2).normalize()
+
     if line.geom_type == 'MultiLineString':
         lsegs = line.geoms
         r = lsegs[0]

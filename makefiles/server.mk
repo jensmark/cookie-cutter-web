@@ -2,7 +2,6 @@
 # ¯¯¯¯¯¯¯¯¯¯¯
 
 server.install: ## Install server with its dependencies
-	docker-compose run --rm server bash -c "apt update && apt install libgl1-mesa-glx ffmpeg libsm6 libxext6 libgl1 -y"
 	docker-compose run --rm server pip install -r requirements-dev.txt --user --upgrade --no-warn-script-location
 
 server.start: ## Start server in its docker container

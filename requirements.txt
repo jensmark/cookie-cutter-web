@@ -5,5 +5,6 @@ itsdangerous
 pytz
 requests
 setproctitle
-cadquery==2.2.0b0
+shapely
+# cadquery>=2.2.0b0 # use cadquery installed in container
 opencv-python-headless==4.6.0.66 

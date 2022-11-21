@@ -4,7 +4,7 @@ services:
   server:
     env_file:
       - .env
-    image: python:3.9
+    image: cadquery/cadquery:latest
     platform: linux/amd64
     working_dir: /mnt
     volumes:
@@ -15,7 +15,7 @@ services:
 
   testserver:
     env_file: .env
-    image: python:3.9
+    image: cadquery/cadquery:latest
     platform: linux/amd64
     working_dir: /mnt
     volumes:

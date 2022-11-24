@@ -8,8 +8,8 @@ def create_mask(image_file):
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-    lower = np.array([55, 60, 20])
-    upper = np.array([175, 230, 230])
+    lower = np.array([60, 50, 30])
+    upper = np.array([100, 210, 210])
     img_range = cv2.inRange(image_hsv, lower, upper)
 
     #kernels for morphology operations

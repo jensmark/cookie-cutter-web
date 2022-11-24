@@ -7,8 +7,8 @@ def create_mask(image_file):
     image = cv2.imread(image_file)
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-
-    lower = np.array([60, 50, 30])
+    
+    lower = np.array([45, 50, 30])
     upper = np.array([100, 210, 210])
     img_range = cv2.inRange(image_hsv, lower, upper)
 
